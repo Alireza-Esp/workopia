@@ -29,8 +29,6 @@
         <a href="{{ url("/dashboard") }}" class="block text-white hover:underline py-2">
             <i class="fa fa-gauge mr-1"></i> Dashboard
         </a>
-        <a href="{{ url("/jobs/create") }}" class="block px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black">
-            <i class="fa fa-edit"></i> Create Job
-        </a>
+        <x-button-link url="{{ url('/jobs/create') }}" icon="edit">Create Job</x-button-link>
     </nav>
 </header>
