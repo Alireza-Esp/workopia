@@ -1,8 +1,6 @@
 # Workopia (Laravel)
 
-Workopia is a job listing website built with Laravel 11. This is the main project from my Laravel From Scratch course.
-
-Course Link - https://www.traversymedia.com/laravel-from-scratch
+Workopia is a job listing website built with Laravel 13.
 
 <img src="./public/images/screen.png" alt="" />
 
