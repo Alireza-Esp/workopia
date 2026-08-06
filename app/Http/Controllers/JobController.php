@@ -19,7 +19,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('jobs.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class JobController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('jobs.show');
     }
 
     /**
