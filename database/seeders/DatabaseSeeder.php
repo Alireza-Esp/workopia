@@ -5,6 +5,9 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Database\Seeders\RandomUserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        Schema::disableForeignKeyConstraints();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        DB::table('job_listings')->truncate();
+        DB::table('users')->truncate();
+
+        $this->call(RandomUserSeeder::class);
+        $this->call(JobSeeder::class);
+
+        Schema::enableForeignKeyConstraints();
     }
 }
