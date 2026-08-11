@@ -11,30 +11,13 @@
 
             <x-inputs.text id="title" name="title" label="Job Title" placeholder="Software Engineer"></x-inputs.text>
 
-            <div class="mb-4">
-                <label class="block text-gray-700" for="description">Job Description</label>
-                <textarea cols="30" rows="7" id="description" name="description"
-                    class="w-full px-4 py-2 border rounded focus:outline-none @error('description') border-red-500 @enderror"
-                    placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team...">{{ old('description') }}</textarea>
-                    @error('description')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                    @enderror
-            </div>
+            <x-inputs.text-area id="description" name="description" label="Job Description" large="true" placeholder="We are seeking a skilled and motivated Software Developer to join our growing development team..."></x-inputs.text-area>
 
             <x-inputs.text id="salary" name="salary" type="number" label="Salary" placeholder="120000"></x-inputs.text>
 
-            <div class="mb-4">
-                <label class="block text-gray-700" for="requirements">Requirements</label>
-                <textarea id="requirements" name="requirements"
-                    class="w-full px-4 py-2 border rounded focus:outline-none"
-                    placeholder="Bachelor's degree in Computer Science"></textarea>
-            </div>
+            <x-inputs.text-area id="requirements" name="requirements" label="Requirements" placeholder="Bachelor's degree in Computer Science"></x-inputs.text-area>
 
-            <div class="mb-4">
-                <label class="block text-gray-700" for="benefits">Benefits</label>
-                <textarea id="benefits" name="benefits" class="w-full px-4 py-2 border rounded focus:outline-none"
-                    placeholder="Health insurance, 401k, paid time off"></textarea>
-            </div>
+            <x-inputs.text-area id="benefits" name="benefits" label="Benefits" placeholder="Health insurance, 401k, paid time off"></x-inputs.text-area>
 
             <x-inputs.text id="tags" name="tags" label="Tags (comma-separated)" placeholder="development,coding,java,python"></x-inputs.text>
 
@@ -78,14 +61,9 @@
 
             <x-inputs.text id="company_name" name="company_name" label="Company Name" placeholder="Company Name"></x-inputs.text>
 
-            <div class="mb-4">
-                <label class="block text-gray-700" for="company_description">Company Description</label>
-                <textarea id="company_description" name="company_description"
-                    class="w-full px-4 py-2 border rounded focus:outline-none"
-                    placeholder="Company Description"></textarea>
-            </div>
+            <x-inputs.text-area id="company_description" name="company_description" label="Company Description" placeholder="Company Description"></x-inputs.text-area>
 
-            <x-inputs.text id="company_website" name="company_website" label="Company Website" placeholder="Company Website"></x-inputs.text>
+            <x-inputs.text id="company_website" name="company_website" type="url" label="Company Website" placeholder="Company Website"></x-inputs.text>
 
             <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone" placeholder="Contact Phone"></x-inputs.text>
 
@@ -98,7 +76,7 @@
             </div>
             @error('company_logo')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
+            @enderror
 
             <button type="submit"
                 class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3 rounded focus:outline-none">
