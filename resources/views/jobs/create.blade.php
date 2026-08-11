@@ -47,14 +47,7 @@
 
             <x-inputs.text id="contact_email" name="contact_email" label="Contact Email" placeholder="Contact Email"></x-inputs.text>
 
-            <div class="mb-4">
-                <label class="block text-gray-700" for="company_logo">Company Logo</label>
-                <input id="company_logo" type="file" name="company_logo"
-                    class="w-full px-4 py-2 border rounded focus:outline-none @error('company_logo') border-red-500 @enderror" />
-            </div>
-            @error('company_logo')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
+            <x-inputs.file id="company_logo" name="company_logo" label="Company Logo"></x-inputs.file>
 
             <button type="submit"
                 class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 my-3 rounded focus:outline-none">
