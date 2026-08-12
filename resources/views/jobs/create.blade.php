@@ -5,6 +5,7 @@
             Create Job Listing
         </h2>
         <form method="POST" action="/jobs" enctype="multipart/form-data">
+            @csrf
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                 Job Info
             </h2>
@@ -23,7 +24,7 @@
 
             <x-inputs.select id="job_type" name="job_type" :options="['Full-Time', 'Part-Time', 'Contract', 'Temporary', 'Internship', 'Volunteer', 'On-Call']" label="Job Type"></x-inputs.select>
 
-            <x-inputs.select id="remote" name="remote" :options="['No', 'Yes']" label="Remote"></x-inputs.select>
+            <x-inputs.select id="remote" name="remote" :options="[0 => 'No', 1 => 'Yes']" label="Remote"></x-inputs.select>
 
             <x-inputs.text id="address" name="address" label="Address" placeholder="123 Main St"></x-inputs.text>
 
