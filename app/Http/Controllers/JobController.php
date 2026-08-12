@@ -126,8 +126,14 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Job $job)
     {
-        //
+        if ($job->company_logo) {
+            Storage::delete('storage/logos/' . basename($job->company_logo));
+        }
+
+        $job->delete();
+
+        return redirect()->route('jobs.index')->with('success', 'Job deleted successfully');
     }
 }
