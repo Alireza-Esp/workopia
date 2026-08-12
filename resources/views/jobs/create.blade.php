@@ -22,9 +22,9 @@
 
             <x-inputs.text id="tags" name="tags" label="Tags (comma-separated)" placeholder="development,coding,java,python"></x-inputs.text>
 
-            <x-inputs.select id="job_type" name="job_type" :options="['Full-Time', 'Part-Time', 'Contract', 'Temporary', 'Internship', 'Volunteer', 'On-Call']" label="Job Type"></x-inputs.select>
+            <x-inputs.select id="job_type" name="job_type" :options="['Full-Time'=>'Full-Time', 'Part-Time'=>'Part-Time', 'Contract'=>'Contract', 'Temporary'=>'Temporary', 'Internship'=>'Internship', 'Volunteer'=>'Volunteer', 'On-Call'=>'On-Call']" label="Job Type"></x-inputs.select>
 
-            <x-inputs.select id="remote" name="remote" :options="[0 => 'No', 1 => 'Yes']" label="Remote"></x-inputs.select>
+            <x-inputs.select id="remote" name="remote" :options="[0=>'No', 1=>'Yes']" label="Remote"></x-inputs.select>
 
             <x-inputs.text id="address" name="address" label="Address" placeholder="123 Main St"></x-inputs.text>
 
