@@ -31,4 +31,14 @@ class LoginController extends Controller
             'email' => 'Credentials are not valid.'
         ])->withInput($request->only('email'));
     }
+
+    public function logout(Request $request): RedirectResponse {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
+    
 }
