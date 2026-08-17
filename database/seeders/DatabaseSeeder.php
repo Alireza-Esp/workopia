@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Database\Seeders\RandomUserSeeder;
+use Database\Seeders\TestUserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         DB::table('job_listings')->truncate();
         DB::table('users')->truncate();
 
+        $this->call(TestUserSeeder::class);
         $this->call(RandomUserSeeder::class);
         $this->call(JobSeeder::class);
 

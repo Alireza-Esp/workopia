@@ -17,10 +17,16 @@ class JobSeeder extends Seeder
     {
         $jobListings = require database_path('/seeders/data/job_listings.php');
 
-        $userIds = User::pluck('id')->toArray();
+        $testUserId = User::where('email', 'test@email.com')->value('id');
 
-        foreach ($jobListings as &$listing) {
-            $listing['user_id'] = array_rand($userIds, 1);
+        $userIds = User::where('email', '!=', 'test@email.com')->pluck('id')->toArray();
+
+        foreach ($jobListings as $index => &$listing) {
+            if ($index < 2) {
+                $listing['user_id'] = $testUserId;
+            } else {
+                $listing['user_id'] = array_rand($userIds, 1);
+            }
 
             $listing['created_at'] = now();
             $listing['updated_at'] = now();
