@@ -134,7 +134,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        $this->authorize('update', $job);
+        $this->authorize('delete', $job);
 
         if ($job->company_logo) {
             Storage::delete('storage/logos/' . basename($job->company_logo));
