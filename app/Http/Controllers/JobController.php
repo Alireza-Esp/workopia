@@ -55,7 +55,7 @@ class JobController extends Controller
             'company_website' => 'nullable|url',
         ]);
 
-        $validatedData['user_id'] = 1;
+        $validatedData['user_id'] = auth()->user()->id;
 
         if (request()->hasFile('company_logo')) {
             $path = request()->file('company_logo')->store('logos', 'public');

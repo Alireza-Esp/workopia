@@ -25,7 +25,7 @@ class JobSeeder extends Seeder
             if ($index < 2) {
                 $listing['user_id'] = $testUserId;
             } else {
-                $listing['user_id'] = array_rand($userIds, 1);
+                $listing['user_id'] = $userIds[array_rand($userIds, 1)];
             }
 
             $listing['created_at'] = now();
