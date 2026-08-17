@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('jobs', JobController::class)->middleware('auth')->only('create', 'store', 'edit', 'update', 'destroy');
@@ -18,3 +19,5 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
