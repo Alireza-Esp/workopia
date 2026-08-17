@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\Job;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
+    use AuthorizesRequests;
+    
     /**
      * Display a listing of the resource.
      */
@@ -81,6 +83,8 @@ class JobController extends Controller
      */
     public function edit(Job $job): View
     {
+        $this->authorize('update', $job);
+
         return view('jobs.edit')->with('job', $job);
     }
 
@@ -89,6 +93,8 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
+        $this->authorize('update', $job);
+
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -128,6 +134,8 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
+        $this->authorize('update', $job);
+
         if ($job->company_logo) {
             Storage::delete('storage/logos/' . basename($job->company_logo));
         }
