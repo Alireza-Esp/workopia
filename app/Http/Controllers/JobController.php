@@ -18,7 +18,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::paginate(6);
+        $jobs = Job::orderByDesc('created_at')->paginate(6);
 
         return view('jobs.index')->with('jobs', $jobs);
     }
