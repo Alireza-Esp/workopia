@@ -9,6 +9,6 @@
         <p>No Jobs Available</p>
     @endforelse
     </div>
-
+    {{ $jobs->links() }}
     <x-bottom-banner></x-bottom-banner>
 </x-layout>
