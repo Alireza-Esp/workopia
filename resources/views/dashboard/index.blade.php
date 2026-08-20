@@ -49,12 +49,12 @@
                     </div>
                 </div>
 
-                <div class="mt-1">
-                    <h4 class="text-lg font-semibold mb-2">
+                <div class="mt-1 bg-gray-100 rounded-md p-3">
+                    <h4 class="text-lg font-semibold">
                         Applicants
                     </h4>
                     @forelse ($job->applicants as $applicant)
-                        <p class="text-gray-800">
+                        <p class="text-gray-800 mt-3">
                             <strong>Name: </strong>{{ $applicant->full_name }}
                         </p>
                         <p class="text-gray-800">
@@ -71,6 +71,13 @@
                                 <i class="fa fa-download" mr-1></i> Download Resume
                             </a>
                         </p>
+                        <form method="POST" action="{{ route('applicant.destroy', $applicant->id) }}" onsubmit="return confirm('Are you sure to delete this applicant?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-500 hover:text-red-700">
+                                <i class="fa fa-trash" mr-1></i> Delete Applicant
+                            </button>
+                        </form>
                     @empty
                         <p class="text-gray-700">No applicants for this job</p>
                     @endforelse
