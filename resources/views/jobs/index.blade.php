@@ -1,4 +1,8 @@
 <x-layout>
+    <div class="bg-blue-900 h-24 px-4 mb-4 flex justify-center items-center rounded-md">
+        <x-search></x-search>
+    </div>
+
     <h2 class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3">
         All Jobs
     </h2>
