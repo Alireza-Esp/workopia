@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 class ApplicantController extends Controller
 {
     public function store(Request $request, Job $job): RedirectResponse {
+        $existingApplication = Applicant::where('job_id', $job->id)->where('user_id', auth()->user()->id)->exists();
+
+        if ($existingApplication) {
+            return redirect()->back()->with('error', 'You have already applied to this job');
+        }
+
         $validatedData = $request->validate([
             'full_name' => 'required|string',
             'contact_phone' => 'string',
