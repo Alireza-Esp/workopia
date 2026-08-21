@@ -56,7 +56,7 @@ class JobApplied extends Mailable
         $attachments = [];
 
         if ($this->application->resume_path) {
-            $attachments[] = Attachment::fromPath(storage_path('app/storage/' . $this->application->resume_path))
+            $attachments[] = Attachment::fromPath(storage_path('app/public/' . $this->application->resume_path))
             ->as($this->application->resume_path)
             ->withMime('application/pdf');
         }
